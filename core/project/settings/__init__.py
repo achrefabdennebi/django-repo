@@ -1,4 +1,4 @@
-import os.path 
+import os.path
 from pathlib import Path
 from split_settings.tools import include, optional
 
@@ -13,8 +13,7 @@ if not LOCAL_SETTINGS_PATH:
     LOCAL_SETTINGS_PATH = 'local/settings.dev.py'
 
 if not os.path.isabs(LOCAL_SETTINGS_PATH):
-    LOCAL_SETTINGS_PATH = str( BASE_DIR / LOCAL_SETTINGS_PATH )
-
+    LOCAL_SETTINGS_PATH = str(BASE_DIR / LOCAL_SETTINGS_PATH)
 
 include(
     'base.py',
