@@ -2,6 +2,14 @@
 install:
 	poetry install
 
+.PHONY: install-precommit
+install-precommit:
+	poetry run pre-commit uninstall;poetry run pre-commit install
+
+.PHONY: lint
+lint:
+	poetry run pre-commit run  -a
+
 .PHONY: migrate
 migrate:
 	poetry run python -m core.manage migrate
@@ -18,6 +26,5 @@ run-server:
 superuser:
 	poetry run python -m core.manage createsuperuser
 
-.PHONY: update	
-update: install migrate ;
-
+.PHONY: update
+update: install migrate install-precommit;
